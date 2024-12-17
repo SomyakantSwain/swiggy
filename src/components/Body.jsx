@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Yourmind from './Yourmind'
+import Toprestaurant from "./Toprestaurant";
 
 const Body = () => {
   const [data, setdata] = useState([]);
@@ -29,47 +31,10 @@ const Body = () => {
   return (
     <div className="w-full ">
       <div className="w-[75%] mx-auto mt-5 text-2xl font-bold overflow-hidden">
-        <div className="flex justify-between">
-          <h1>What's in your mind?</h1>
-          <div className="flex mr-4">
-            <div
-              onClick={handleclickprev}
-              className={`left-arrow rounded-full w-9 h-9 flex items-center justify-center ${
-                value <= 0 ? "bg-gray-100" : "bg-gray-200"
-              }`}
-            >
-              <i
-                className={`ri-arrow-left-line  ${
-                  value <= 0 ? "text-gray-400" : "text-gray-800"
-                } `}
-              ></i>
-            </div>
-
-            <div
-              onClick={handleclicknext}
-              className="right-arrow bg-gray-200 rounded-full w-9 h-9 flex items-center justify-center"
-            >
-              <i
-                className={`ri-arrow-right-line  ${
-                  value >= 210 ? "text-gray-400" : "text-gray-800"
-                } `}
-              ></i>
-            </div>
-          </div>
-        </div>
-        <div
-          style={{ transform: `translateX(-${value}%)` }}
-          className="flex gap-3 duration-1000"
-        >
-          {data.map((item) => (
-            <img
-              className="w-[160px] h-[170px]"
-              key={item.id}
-              src={`https://media-assets.swiggy.com/swiggy/image/upload/${item.imageId}`}
-              alt=""
-            />
-          ))}
-        </div>
+      <Yourmind/>
+        <hr className="p-6" />
+      <Toprestaurant/>
+      <hr className="p-6" />
       </div>
     </div>
   );
